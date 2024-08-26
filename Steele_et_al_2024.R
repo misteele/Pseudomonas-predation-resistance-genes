@@ -108,3 +108,9 @@ tanglegram(dl1_untangled,
            common_subtrees_color_branches = FALSE)
 
 
+### Run growthcurver
+library(growthcurver)
+data <- read.csv("growthcurve_data.csv", header = TRUE, sep = ",") 
+gc_out <- SummarizeGrowthByPlate(data, plot_fit = TRUE, plot_file = "gc_plots.pdf")
+out_file <- "growthcurver_results.txt"
+write.table(gc_out, file = out_file, quote = FALSE, sep = "\t", row.names = FALSE)
